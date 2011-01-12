@@ -31,6 +31,8 @@ class Document{
    protected:
       Document(Communication&, const std::string&,
                const std::string&, const std::string&, const std::string&);
+      Document(Communication&, const std::string&,
+               const std::string&, const std::string&);
 
    public:
       Document(const Document&);

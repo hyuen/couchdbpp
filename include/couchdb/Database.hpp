@@ -38,6 +38,7 @@ class Database{
       const std::string& getName() const;
 
       std::vector<Document> listDocuments();
+      std::vector<Document> listDocuments(const std::string&);
       Document getDocument(const std::string&, const std::string &rev="");
       Document createDocument(const Variant&, const std::string &id="");
       Document createDocument(Variant, std::vector<Attachment>,
@@ -46,6 +47,8 @@ class Database{
    protected:
       Communication& getCommunication();
 
+   private:
+       void _listDocuments(const std::string&, std::vector<Document>&);
    private:
       Communication &comm;
       std::string   name;

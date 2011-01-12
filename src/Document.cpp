@@ -29,6 +29,16 @@ Document::Document(Communication &_comm, const string &_db, const string &_id,
 {
 }
 
+Document::Document(Communication &_comm, const string &_db, const string &_id,
+                   const string &_key)
+   : comm(_comm)
+   , db(_db)
+   , id(_id)
+   , key(_key)
+{
+  revision = "";
+}
+
 Document::Document(const Document &doc)
    : comm(doc.comm)
    , db(doc.db)

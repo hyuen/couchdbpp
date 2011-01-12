@@ -16,6 +16,7 @@
 #include "couchdb/Communication.hpp"
 #include "couchdb/Exception.hpp"
 #include "tinyjson/tinyjson.hpp"
+#include <string.h>
 
 using namespace std;
 using namespace CouchDB;

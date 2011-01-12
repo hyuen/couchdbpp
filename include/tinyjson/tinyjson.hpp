@@ -27,8 +27,10 @@
 
 #include	<boost/shared_ptr.hpp>
 #include	<boost/any.hpp>
-#include	<boost/spirit/core.hpp>
-#include	<boost/spirit/utility/loops.hpp>
+//#include	<boost/spirit/core.hpp>
+#include        <boost/spirit/include/classic_core.hpp>
+//#include	<boost/spirit/utility/loops.hpp>
+#include <boost/spirit/include/classic_loops.hpp>
 #include	<boost/lexical_cast.hpp>
 
 #include	<string>
@@ -36,7 +38,6 @@
 #include	<utility>
 #include	<deque>
 #include	<map>
-
 
 namespace json
 {
@@ -95,7 +96,7 @@ namespace json
 	// ==========================================================================================================
 
 	template< typename Char >
-	class grammar : public boost::spirit::grammar< grammar< Char > >
+	class grammar : public boost::spirit::classic::grammar< grammar< Char > >
 	{
 	public:
 
@@ -435,25 +436,25 @@ namespace json
 		template <typename SCANNER>
 		class definition
 		{
-			boost::spirit::rule< SCANNER > m_object_or_array;
-			boost::spirit::rule< SCANNER > m_object;
-			boost::spirit::rule< SCANNER > m_array;
-			boost::spirit::rule< SCANNER > m_pair;
-			boost::spirit::rule< SCANNER > m_value;
-			boost::spirit::rule< SCANNER > m_string;
-			boost::spirit::rule< SCANNER > m_number;
-			boost::spirit::rule< SCANNER > m_boolean;
-			boost::spirit::rule< SCANNER > m_null;
+		  boost::spirit::classic::rule< SCANNER > m_object_or_array;
+		  boost::spirit::classic::rule< SCANNER > m_object;
+		  boost::spirit::classic::rule< SCANNER > m_array;
+		  boost::spirit::classic::rule< SCANNER > m_pair;
+		  boost::spirit::classic::rule< SCANNER > m_value;
+		  boost::spirit::classic::rule< SCANNER > m_string;
+		  boost::spirit::classic::rule< SCANNER > m_number;
+		  boost::spirit::classic::rule< SCANNER > m_boolean;
+		  boost::spirit::classic::rule< SCANNER > m_null;
 
 		public:
 
-			boost::spirit::rule< SCANNER > const & start() const { return m_object_or_array; }
+		  boost::spirit::classic::rule< SCANNER > const & start() const { return m_object_or_array; }
 
 			// - -[ create the definition ] - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 			definition(grammar const & self)
 			{
-				using namespace boost::spirit;
+			  using namespace boost::spirit::classic;
 
 				m_object_or_array = m_object | m_array;
 
@@ -552,7 +553,7 @@ namespace json
 		typename json::grammar< typename Iterator::value_type >::stack st;
 		json::grammar< typename Iterator::value_type > gr(st);
 
-		boost::spirit::parse_info<Iterator> pi = boost::spirit::parse(szFirst, szEnd, gr, boost::spirit::space_p);
+		boost::spirit::classic::parse_info<Iterator> pi = boost::spirit::classic::parse(szFirst, szEnd, gr, boost::spirit::classic::space_p);
 
 		// 2: skip any spaces at the end of the parsed section...
 

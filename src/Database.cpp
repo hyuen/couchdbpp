@@ -46,12 +46,29 @@ const string& Database::getName() const{
 }
 
 vector<Document> Database::listDocuments(){
-   Variant var = comm.getData("/" + name + "/_all_docs");
+  string viewname = "/" + name + "/_all_docs";
+  
+  vector<Document> docs;
+  _listDocuments(viewname, docs);
+
+  return docs;
+}
+
+vector<Document> Database::listDocuments(const string &viewname){
+   vector<Document> docs;
+   string docname = "/" + name + "/_design/" + viewname + "/_view/" + viewname;
+   _listDocuments(docname, docs);
+
+   return docs;
+}
+
+void Database::_listDocuments(const string &viewname, vector<Document> &docs){
+   Variant var = comm.getData(viewname);
    Object  obj = boost::any_cast<Object>(*var);
 
    int numRows = boost::any_cast<int>(*obj["total_rows"]);
 
-   vector<Document> docs;
+   docs.clear();
 
    if(numRows > 0){
       Array rows = boost::any_cast<Array>(*obj["rows"]);
@@ -60,19 +77,26 @@ vector<Document> Database::listDocuments(){
       const Array::iterator &row_end = rows.end();
       for(; row != row_end; ++row){
          Object docObj = boost::any_cast<Object>(**row);
-         Object values = boost::any_cast<Object>(*docObj["value"]);
+         
 
-         Document doc(comm, name,
-                      boost::any_cast<string>(*docObj["id"]),
-                      boost::any_cast<string>(*docObj["key"]),
-                      boost::any_cast<string>(*values["rev"]));
-
-         docs.push_back(doc);
+         try{
+           Object values = boost::any_cast<Object>(*docObj["value"]);
+           Document doc(comm, name,
+                        boost::any_cast<string>(*docObj["id"]),
+                        boost::any_cast<string>(*docObj["key"]),
+                        boost::any_cast<string>(*values["rev"]));
+           docs.push_back(doc);
+         } catch(boost::bad_any_cast&){
+           Document doc(comm, name,
+                        boost::any_cast<string>(*docObj["id"]),
+                        boost::any_cast<string>(*docObj["key"]),
+                        boost::any_cast<string>(*docObj["value"]));
+           docs.push_back(doc);
+         }
       }
    }
-
-   return docs;
 }
+
 
 Document Database::getDocument(const string &id, const string &rev){
    string url = "/" + name + "/" + id;
