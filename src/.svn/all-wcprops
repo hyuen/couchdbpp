@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 25
+/svn/!svn/ver/6/trunk/src
+END
+Revision.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/2/trunk/src/Revision.cpp
+END
+Document.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/2/trunk/src/Document.cpp
+END
+Exception.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/2/trunk/src/Exception.cpp
+END
+Connection.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/2/trunk/src/Connection.cpp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/6/trunk/src/Makefile.in
+END
+Database.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/2/trunk/src/Database.cpp
+END
+Communication.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/2/trunk/src/Communication.cpp
+END
+Attachment.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/2/trunk/src/Attachment.cpp
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/6/trunk/src/Makefile.am
+END

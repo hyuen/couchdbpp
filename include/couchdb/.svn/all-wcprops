@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/2/trunk/include/couchdb
+END
+Document.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2/trunk/include/couchdb/Document.hpp
+END
+Exception.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2/trunk/include/couchdb/Exception.hpp
+END
+Revision.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2/trunk/include/couchdb/Revision.hpp
+END
+Connection.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2/trunk/include/couchdb/Connection.hpp
+END
+Database.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2/trunk/include/couchdb/Database.hpp
+END
+Communication.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/include/couchdb/Communication.hpp
+END
+CouchDB.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/trunk/include/couchdb/CouchDB.hpp
+END
+Attachment.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2/trunk/include/couchdb/Attachment.hpp
+END
